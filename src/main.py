@@ -9,13 +9,16 @@ from config import Config
 from eval import EvalSummarizer
 from summarize import NewsArticleSummarizer
 
-if __name__ == "__main__":
+
+def initialize_openai():
     # Load environment variables from the .env file
     load_dotenv()
     # Initialize the OpenAI API client
     api_key = os.getenv("OPENAI_API_KEY")
     openai.api_key = api_key
 
+
+def initialize_components():
     # Initialize the RecursiveCharacterTextSplitter
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=2000,
@@ -29,8 +32,16 @@ if __name__ == "__main__":
 
     # Initialize the NewsArticleSummarizer
     summarizer = NewsArticleSummarizer(text_splitter, llm)
+
     # Initialize the EvalSummarizer
     evaluator = EvalSummarizer(llm)
+
+    return summarizer, evaluator
+
+
+def main():
+    initialize_openai()
+    summarizer, evaluator = initialize_components()
 
     # Example usage
     news_article = (
@@ -39,6 +50,7 @@ if __name__ == "__main__":
         "and (ii) instruct, which has already been fine-tuned on instructions, making it, in our view,"
         "favorable for out-of-the-box chatbot and Q&A applications."
     )
+
     # Generate summary
     summary = summarizer.generate_summary(news_article)
 
@@ -49,3 +61,7 @@ if __name__ == "__main__":
     print(f"Evaluation Score: {evaluation_score}")
     print("Generated Summary:")
     print(summary)
+
+
+if __name__ == "__main__":
+    main()
