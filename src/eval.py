@@ -4,7 +4,7 @@ from enum import Enum
 
 from langchain_openai import ChatOpenAI
 
-from template import closed_end_answers_template, closed_end_questions_template
+from src.template import closed_end_answers_template, closed_end_questions_template
 
 
 class QuestionSource(str, Enum):

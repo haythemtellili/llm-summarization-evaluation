@@ -6,8 +6,8 @@ from langchain.schema.document import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 
-from config import Config
-from utils import calculate_number_tokens, retry_with_exponential_backoff
+from src.config import Config
+from src.utils import calculate_number_tokens, retry_with_exponential_backoff
 
 warnings.filterwarnings("ignore")
 

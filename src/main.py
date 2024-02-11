@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 
-from config import Config
-from eval import EvalSummarizer
-from summarize import NewsArticleSummarizer
+from src.config import Config
+from src.eval import EvalSummarizer
+from src.summarize import NewsArticleSummarizer
 
 
 def initialize_openai():
