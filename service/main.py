@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 
-from src.models import SummaryRequest, SummaryResponse
+from service.models import SummaryRequest, SummaryResponse
 from src.main import initialize_components, initialize_openai
 
 app = FastAPI()

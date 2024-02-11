@@ -1,3 +1,5 @@
 .env
 __pycache__
 src/__pycache__
+summarization.egg-info/
+build/

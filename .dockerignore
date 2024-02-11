@@ -1,3 +1,4 @@
 Makefile
 .pre-commit-config.yaml
 __pycache__
+summarization.egg-info
